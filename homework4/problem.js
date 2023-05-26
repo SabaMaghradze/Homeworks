@@ -2,13 +2,15 @@
 // შექმენით ფუნქცია რომელიც დააბრუნებს რიცხვი კენტია თუ ლუწი
 
 function checkNum(x) {
-    if (x % 2 === 0) {
+    if (typeof x !== "number") {
+        console.log("That is not a number.")
+    }
+    else if (x % 2 === 0) {
         console.log("The number is even.");
     } else {
         console.log("The number is odd.");
     }
 };
-
 
 // problem2
 // შექმენით ფუნქცია რომელიც მომხმარებელს შეეკითხება საკუთარ სახელს და შემდეგ დააბრუნებს მას.
@@ -16,14 +18,13 @@ function checkNum(x) {
 // (მომხმარებლისგან ინფორმაციის მისაღებად გამოიყენეთ prompt() ფუნქცია,)
 // (კონსოლში დასაბეჭდათ გამოიყენეთ console.log() ფუნქცია )
 
-function getName() {
+function yourName() {
     let name = prompt("Enter your name: ");
-    // return name;
-    console.log(name);
+    return name;
 };
 
-// let theName = getName();
-// console.log(theName);
+let userName = yourName();
+console.log(userName);
 
 // problem 3
 // მომხმარებელს მოთხოვეთ რომ შეიყვანოს რიცხვი, თუ კენტ რიცხვს შეიყვანს კონსოლში დაბეჭდეთ
@@ -32,16 +33,19 @@ function getName() {
 // (მომხმარებლისგან ინფორმაციის მისაღებად გამოიყენეთ prompt() ფუნქცია,)
 // (კონსოლში დასაბეჭდათ გამოიყენეთ console.log() ფუნქცია )
 
-function getNum() {
-    let x = ParseInt(prompt("Enter the number: "));
+function oddOrEven() {
+    let num = prompt("Enter a number: ");
+    while (isNaN(num)) {
+        num = prompt("Invalid value, please enter a number: ");
+    }
+
+    if (num % 2 === 0) {
+        console.log("The number is even.");
+    } else {
+        console.log("The number is odd.");
+    }
 }
 
-let daNum = getNum();
-if (num % 2 === 0) {
-    console.log("The number is even.");
-} else {
-    console.log("The number is odd.");
-};
 
 // problem 4
 // კონსოლში დაბეჭდეთ 1-100 მდე ყველა ლუწი რიცხვი
@@ -51,15 +55,29 @@ for (let i = 1; i < 100; i++) {
         console.log(i);
     }
 }
+
+// let x = 0;
+// while (x < 100) {
+//     if (x % 2 === 0) {
+//         console.log(x);
+//     }
+//     x++;
+// }
+
 // problem 5
 // მომხმარებელს მოთხოვეთ რომ შეიყვანოს რიცხვები მანამ სანამ არ შეიყვანს უარყოფით რიცხვს
 
 while (true) {
-    let num = Number(prompt("Enter your number: "));
-    if (num >= 0) {
-        continue;
-    } else {
+    let num = prompt("Enter a negative number: ");
+    let int = parseInt(num);
+    if (isNaN(int)) {
+        console.log("That is not a number at all.");
+    }
+    else if (int < 0) {
         break;
+    } else {
+        console.log("That is not a negative number");
+        continue;
     }
 }
 
@@ -69,16 +87,22 @@ let result = [];
 // numbers მასივში იპოვეთ რიცხვები რომელიც იყოფა 5-ზე ლუპის საშუალებით,
 // შეინახეთ result მასივში.
 
-for (let z of numbers) {
-    if (z % 5 == 0) {
-        result.push(z);
+for (let number of numbers) {
+    if (number % 5 == 0) {
+        result.push(number);
     }
 };
 
 // problem 7
-// let names = ["Gio","Luka","Nika","Ani","Eka","Nini","Sopo"];
+let names = ["Gio", "Luka", "Nika", "Ani", "Eka", "Nini", "Sopo"];
 // კონსოლში დაბეჭდეთ names მასივში არსებული ყველა ელემენტი, გამოტოვეთ მხოლოდ ნიკა.
 // ლუპის საშუალებით.
+
+for (let name of names) {
+    if (name !== "Nika") {
+        console.log(name);
+    }
+};
 
 //problem 8
 
