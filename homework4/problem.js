@@ -114,29 +114,61 @@ for (let name of names) {
 
 //problem 9
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს გადაცემული მომხმარებლის ობიექტი ადმინი არის თუ არა
-// const user = {
-//   isAdmin: true,
-// };
-// const user1 = {
-//   isAdmin: false,
-// };
+const user = {
+  isAdmin: true,
+};
+const user1 = {
+  isAdmin: false,
+};
+
+function admin(user) {
+    if (user.isAdmin == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // problem 10
 
 // დაწერეთ ფუნქცია რომელიც იპოვის და დააბრუნებს მასივში ყველაზე დიდ რიცხვს.
 
-// const numbers = [
-//   1, 4, 2, 14, 90, 13, 2, 0, 78, 199, 12, 313, 315, 789, 31, 12, 1, 1, 3467, 90,
-//   70, 34, 43, 189,
-// ];
+const numbers = [
+    1, 4, 2, 14, 90, 13, 2, 0, 78, 199, 12, 313, 315, 789, 31, 12, 1, 1, 3467, 90,
+    70, 34, 43, 189,
+];
+
+function largestNum(arr) {
+    let biggestNum = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > biggestNum) {
+            biggestNum = arr[i];
+        };
+    }
+    console.log(biggestNum);
+}
+
+largestNum(numbers);
 
 // problem 11
 
 // დაწერეთ ფუნქცია რომელიც იპოვის და დააბრუნებს მასივში ყველაზე პატარა რიცხვს.
 
-// const numbers = [
-//     1, 4, 2, 14, 90, 13, 2, 0, 78, 199, 12, 313, 315, 789, 31, 12, 1, 1, 3467, 90,
-//     70, 34, 43, 189,
-//   ];
+const numbers = [
+    1, 4, 2, 14, 90, 13, 2, 0, 78, 199, 12, 313, 315, 789, 31, 12, 1, 1, 3467, 90,
+    70, 34, 43, 189,
+];
+
+function smallestNum(arr) {
+    let smallestNumber = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < smallestNumber) {
+            smallestNumber = arr[i];
+        }
+    }
+    console.log(smallestNumber);
+}
+
+smallestNum(numbers);
 
 // Have fun :) :)
