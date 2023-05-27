@@ -69,15 +69,14 @@ for (let i = 1; i < 100; i++) {
 
 while (true) {
     let num = prompt("Enter a negative number: ");
-    let int = parseInt(num);
-    if (isNaN(int)) {
+    num = parseInt(num);
+    if (isNaN(num)) {
         console.log("That is not a number at all.");
     }
-    else if (int < 0) {
+    else if (num < 0) {
         break;
     } else {
         console.log("That is not a negative number");
-        continue;
     }
 }
 
@@ -112,13 +111,27 @@ for (let name of names) {
 // თუ მინიმუმ 5 მომხმარებელი იქნება დააბრუნეთ თითოეული მათგანის სრული სახელი, გვარი და ასაკი.
 // (array.length გამოიყენეთ იმისთვის რომ გაიგოთ არის თუ არა მასივში შესაბამისი რაოდენობის ელემენტი)
 
+
+function checkArray(arr) {
+    for (let i = 0; i <= arr.length; i++) {
+        if (arr.length < 5) {
+            console.log("Not enough objects.");
+            break;
+        } else {
+            console.log(`${arr[i].name}, ${arr[i].surname}, ${arr[i].gender}, ${arr[i].age}`);
+        }
+    }
+}
+
+checkArray(test);
+
 //problem 9
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს გადაცემული მომხმარებლის ობიექტი ადმინი არის თუ არა
 const user = {
-  isAdmin: true,
+    isAdmin: true,
 };
 const user1 = {
-  isAdmin: false,
+    isAdmin: false,
 };
 
 function admin(user) {
