@@ -3,7 +3,7 @@
 
 function checkNum(x) {
     if (typeof x !== "number") {
-        console.log("That is not a number.")
+        console.log("That is not a number.");
     }
     else if (x % 2 === 0) {
         console.log("The number is even.");
