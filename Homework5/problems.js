@@ -279,7 +279,7 @@ const data = [
 function average(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    sum += data[i].age
+    sum += array[i].age
   }
   let average = sum / array.length;
   return average;
@@ -293,7 +293,7 @@ console.log(result);
 // სადაც იქნება მომხმარებლები რომლებიც არ არიან 20 წელზე მეტის.
 
 function under20(array) {
-  let under20 = arr.filter((user) => user.age < 20);
+  let under20 = array.filter((user) => user.age < 20);
   return under20;
 }
 
