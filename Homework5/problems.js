@@ -275,25 +275,96 @@ const data = [
 
 // problem 1
 // დაწერეთ ფუნქცია რომელიც პარამეტრად მიცემული მაისივიდან დააბრუნებს მომხმარებლების საშუალო ასაკს.
+
+function average(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += data[i].age
+  }
+  let average = sum / array.length;
+  return average;
+}
+
+let result = average(data);
+console.log(result);
+
 // problem 2
 // დაწერეთ ფუნქცია რომელიც პარამეტრად მიღებული მაისივიდან დააბრუნებს ახალ მასივს
 // სადაც იქნება მომხმარებლები რომლებიც არ არიან 20 წელზე მეტის.
 
+function under20(array) {
+  let under20 = arr.filter((user) => user.age < 20);
+  return under20;
+}
+
+let filteredData = under20(data);
+console.log(filteredData);
+
 // problem 3
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს მასივს სადაც იქნება მხოლოდ მომხმარებლების სახელი და გვარი.
+
+function nameAndSurname(array) {
+  return array.map(({firstname, lastname}) => ({firstname, lastname}));
+}
+let modifiedData = nameAndSurname(data);
+console.log(modifiedData);
 
 // problem 4
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს რამდენი ქალი და რამდენი კაცია გადაცემულ მასივში.
 
+function genderCount (array) {
+  let female = 0;
+  let male = 0;
+  array.forEach((user) => {
+      if (user.gender == "Female") {
+          female++;
+      } else if (user.gender == "Male") {
+          male++;
+      }
+  });
+  return { male, female };
+}
+
+let genders = genderCount(data);
+console.log('number of males: ', genders.male);
+console.log('number of females: ', genders.female);
+
+
 // problem 5
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს პირველ მომხმარებელს რომელის ასაკიც 40 წელზე მეტია.
+
+
+function firstOver40 (array) {
+  let firstUserOver40 = array.find((user) => user.age > 40);
+  return firstUserOver40;
+}
+
+let userValue = firstOver40(data);
+console.log(userValue);
 
 // problem6
 // დაწერეთ ფუნქცია რომელსაც გადავცემთ 2 პარამეტრს. მასივს და ელემენტს რომლის წაშლაც გვინდა მასივიდან
 // თუ მოცემული ელემენტი იქნება გადაცემულ მასივში მაშინ დავაბრუნებთ ახალ მასივს სადაც უკვე ამოშლილი იქნება გადაცემული პარამეტრი
 
+
+
 // problem7
 // დაწერეთ ფუნქცია რომელიც დაადგენს პარამეტრად გადაცემული სტრინგი არის თუ არა პალინდრომი
+
+function isPalindrome (str) {
+  let array = str.split("");
+  let reversed = array.reverse();
+  let joint = reversed.join("")
+  if (str === joint) {
+      return true;
+  } else {
+      return false;
+  }
+}
+
+let test = isPalindrome("deed");
+console.log(test);
+
 
 // პალინდრომი არის სიტყვა რომელიც მარცხნიდან და მარჯვნიდან ერთნაირად იკითხება
 // მაგალითად:  kayak, deified, rotator, repaper, deed, peep, wow, noon
