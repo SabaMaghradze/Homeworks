@@ -304,7 +304,7 @@ console.log(filteredData);
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს მასივს სადაც იქნება მხოლოდ მომხმარებლების სახელი და გვარი.
 
 function nameAndSurname(array) {
-  return array.map(({firstname, lastname}) => ({firstname, lastname}));
+  return array.map(({ firstname, lastname }) => ({ firstname, lastname }));
 }
 let modifiedData = nameAndSurname(data);
 console.log(modifiedData);
@@ -312,15 +312,15 @@ console.log(modifiedData);
 // problem 4
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს რამდენი ქალი და რამდენი კაცია გადაცემულ მასივში.
 
-function genderCount (array) {
+function genderCount(array) {
   let female = 0;
   let male = 0;
   array.forEach((user) => {
-      if (user.gender == "Female") {
-          female++;
-      } else if (user.gender == "Male") {
-          male++;
-      }
+    if (user.gender == "Female") {
+      female++;
+    } else if (user.gender == "Male") {
+      male++;
+    }
   });
   return { male, female };
 }
@@ -334,7 +334,7 @@ console.log('number of females: ', genders.female);
 // დაწერეთ ფუნქცია რომელიც დააბრუნებს პირველ მომხმარებელს რომელის ასაკიც 40 წელზე მეტია.
 
 
-function firstOver40 (array) {
+function firstOver40(array) {
   let firstUserOver40 = array.find((user) => user.age > 40);
   return firstUserOver40;
 }
@@ -346,19 +346,31 @@ console.log(userValue);
 // დაწერეთ ფუნქცია რომელსაც გადავცემთ 2 პარამეტრს. მასივს და ელემენტს რომლის წაშლაც გვინდა მასივიდან
 // თუ მოცემული ელემენტი იქნება გადაცემულ მასივში მაშინ დავაბრუნებთ ახალ მასივს სადაც უკვე ამოშლილი იქნება გადაცემული პარამეტრი
 
+const names = ['Billy', 'Jules', 'James', 'Nathan'];
 
+function removeEl(arr, element) {
+
+  let newArray = [...arr];
+  let index = newArray.indexOf(element);
+  newArray.splice(index, 1);
+  return newArray;
+
+}
+
+let result = removeEl(names, 'Jules');
+console.log(result);
 
 // problem7
 // დაწერეთ ფუნქცია რომელიც დაადგენს პარამეტრად გადაცემული სტრინგი არის თუ არა პალინდრომი
 
-function isPalindrome (str) {
+function isPalindrome(str) {
   let array = str.split("");
   let reversed = array.reverse();
   let joint = reversed.join("")
   if (str === joint) {
-      return true;
+    return true;
   } else {
-      return false;
+    return false;
   }
 }
 
