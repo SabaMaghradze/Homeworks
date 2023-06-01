@@ -337,7 +337,7 @@ console.log('number of females: ', genders.female);
 function firstOver40(array) {
   let firstUserOver40 = array.find((user) => user.age > 40);
   return firstUserOver40;
-}
+} 
 
 let userValue = firstOver40(data);
 console.log(userValue);
