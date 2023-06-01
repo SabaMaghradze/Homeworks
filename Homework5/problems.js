@@ -357,8 +357,8 @@ function removeEl(arr, element) {
 
 }
 
-let result = removeEl(names, 'Jules');
-console.log(result);
+let filteredArray = removeEl(names, 'Jules');
+console.log(filteredArray);
 
 // problem7
 // დაწერეთ ფუნქცია რომელიც დაადგენს პარამეტრად გადაცემული სტრინგი არის თუ არა პალინდრომი
