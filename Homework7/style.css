@@ -139,7 +139,7 @@ a {
 }
 
 .secondDiv {
-	width: 20%;
+	width: 10%;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;

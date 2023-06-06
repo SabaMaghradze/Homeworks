@@ -59,5 +59,4 @@ bars.addEventListener('click', (clickEvent) => {
   secondDiv.classList.toggle('activated');
 })
 
-console.log(container);
-
+// მინდოდა რომ click-ის დროს მენუ ნელ-ნელა ჩამოსულიყო(transition-ის გამოყენებით) მაგრამ ვერ გავაკეთე.
