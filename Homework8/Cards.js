@@ -578,6 +578,11 @@ const section1 = document.createElement('section');
 section1.setAttribute('class', 'cardsSect1');
 container.appendChild(section1);
 
+
+section1.style.width = '100%';
+section1.style.padding = 'px';
+section1.style.backgroundColor = 'red';
+
 const cardsDiv = document.createElement('div');
 cardsDiv.setAttribute('class', 'cards');
 
@@ -586,6 +591,7 @@ section1.appendChild(cardsDiv);
 const cards = ['card1', 'card2', 'card3', 'card4', 'card5'];
 
 cardsDiv.style.display = 'flex';
+cardsDiv.style.rowGap = '40px';
 cardsDiv.style.justifyContent = 'space-between';
 cardsDiv.style.padding = '30px';
 cardsDiv.style.border = '4px solid red';
@@ -604,7 +610,8 @@ for (let i = 0; i < cards.length; i++) {
   card.style.padding = '10px';
   card.style.border = '4px solid green';
   cardsDiv.appendChild(card);
-  card.innerText = `${users[i].login.username}, ${users[i].gender}, ${users[i].email}, ${users[i].location.city}, ${users[i].location.street.name}, ${users[i].dob.date}, ${users[i].cell}, ${users[i].picture.medium}`;
+  card.innerText = `username: ${users[i].login.username},\n gender: ${users[i].gender},\n email: ${users[i].email},\n city: ${users[i].location.city},\n street: ${users[i].location.street.name},\n job date: ${users[i].dob.date},\n cellPhone: ${users[i].cell},\n picture: ${users[i].picture.medium}`;
+  card.style.color = 'white';
+  card.style.fontSize = '30px';
 }
-
 
