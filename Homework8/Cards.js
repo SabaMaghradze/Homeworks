@@ -580,8 +580,8 @@ container.appendChild(section1);
 
 
 section1.style.width = '100%';
-section1.style.padding = 'px';
-section1.style.backgroundColor = 'red';
+section1.style.padding = '160px 0';
+section1.style.backgroundColor = '#041E42';
 
 const cardsDiv = document.createElement('div');
 cardsDiv.setAttribute('class', 'cards');
@@ -592,13 +592,13 @@ const cards = ['card1', 'card2', 'card3', 'card4', 'card5'];
 
 cardsDiv.style.display = 'flex';
 cardsDiv.style.rowGap = '40px';
-cardsDiv.style.justifyContent = 'space-between';
-cardsDiv.style.padding = '30px';
-cardsDiv.style.border = '4px solid red';
+
+cardsDiv.style.alignItems = 'center';
 cardsDiv.style.flexWrap = 'wrap';
+cardsDiv.style.padding = '30px';
+
 
 let card;
-let cardData;
 
 
 for (let i = 0; i < cards.length; i++) {
@@ -608,10 +608,14 @@ for (let i = 0; i < cards.length; i++) {
   card.style.justifyContent = 'center';
   card.style.alignItems = 'center';
   card.style.padding = '10px';
-  card.style.border = '4px solid green';
   cardsDiv.appendChild(card);
   card.innerText = `username: ${users[i].login.username},\n gender: ${users[i].gender},\n email: ${users[i].email},\n city: ${users[i].location.city},\n street: ${users[i].location.street.name},\n job date: ${users[i].dob.date},\n cellPhone: ${users[i].cell},\n picture: ${users[i].picture.medium}`;
   card.style.color = 'white';
   card.style.fontSize = '30px';
-}
+  card.style.backgroundColor = '#13274F';
+  card.style.borderRadius = '5px';
+};
+
+header.style.backgroundColor = '#034694';
+logo.style.color = 'white';
 
