@@ -57,7 +57,7 @@ hamburger.addEventListener('click', (clickEventt) => {
   hamburger.classList.toggle('isActive');
   ul.classList.toggle('isActive');
   li.classList.toggle('isActive');
-})
+});
 
 console.log(container);
 
