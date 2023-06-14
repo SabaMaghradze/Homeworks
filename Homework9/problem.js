@@ -4,6 +4,8 @@
 
 let url = 'https://jsonplaceholder.typicode.com/users';
 
+let forDOM;
+
 fetch(url)
   .then(response => {
     if (response.ok == false) {
@@ -12,10 +14,14 @@ fetch(url)
     return response.json();
   })
   .then(users => {
-    console.log(users);
+    forDOM = users;
   })
   .catch(error => {
     console.log('Error:', 'An error occurred');
   });
+
+setTimeout(() => {
+    console.log(forDOM);
+}, 3000);
 
 //   დასრულება ვერ მოვასწარი
