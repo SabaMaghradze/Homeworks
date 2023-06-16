@@ -89,4 +89,4 @@ function displayUser(user) {
     userWrapper.appendChild(name);
 
     return userWrapper;
-}
+};
