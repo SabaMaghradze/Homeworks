@@ -36,3 +36,57 @@
 // `Monsieur Josef Garnier`
 
 // 🎨 ინტერფეისის სტილი შეგიძლიათ შექმნათ თქვენი გემოვნებით
+
+const container = document.createElement('div');
+container.setAttribute('class', 'container');
+document.body.appendChild(container);
+
+const content = document.createElement('div');
+content.setAttribute('class', 'content');
+container.appendChild(content);
+
+const fetchButton = document.createElement('button');
+fetchButton.setAttribute('class', 'fetchButton');
+content.appendChild(fetchButton);
+
+fetchButton.innerText = 'Fetch Users';
+
+let url = 'https://randomuser.me/api'
+
+let obj;
+
+function loadUsers(source) {
+    fetch(source)
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new error('An error occurred');
+        })
+        .then((data) => {
+            displayUsers(data.results);
+        })
+}
+
+fetchButton.addEventListener('click', () => {
+    loadUsers(url);
+});
+
+
+function displayUsers(info) {
+    const usersWrapper = document.createElement('div');
+    content.appendChild(usersWrapper);
+    info.forEach(user => {
+        const userDiv = displayUser(user);
+        usersWrapper.appendChild(userDiv);
+    })
+};
+
+function displayUser(user) {
+    const userWrapper = document.createElement('div');
+    const name = document.createElement('h1');
+    name.textContent = user.name.first;
+    userWrapper.appendChild(name);
+
+    return userWrapper;
+}
