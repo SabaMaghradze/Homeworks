@@ -37,56 +37,50 @@
 
 // 🎨 ინტერფეისის სტილი შეგიძლიათ შექმნათ თქვენი გემოვნებით
 
-const container = document.createElement('div');
-container.setAttribute('class', 'container');
-document.body.appendChild(container);
+const fetchButton = document.getElementById('fetchButton');
+const genderSelection = document.getElementById('genderSelection');
+const userDiv = document.getElementById('userDiv');
 
-const content = document.createElement('div');
-content.setAttribute('class', 'content');
-container.appendChild(content);
+fetchButton.addEventListener('click', fetchUser);
 
-const fetchButton = document.createElement('button');
-fetchButton.setAttribute('class', 'fetchButton');
-content.appendChild(fetchButton);
 
-fetchButton.innerText = 'Fetch Users';
+function fetchUser() {
 
-let url = 'https://randomuser.me/api'
+    let gender = genderSelection.value;
 
-let obj;
+    let url = 'https://randomuser.me/api';
+    if (gender !== 'all') {
+        url += `?gender=${gender}`;
+    }
 
-function loadUsers(source) {
-    fetch(source)
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new error('An error occurred');
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+
+            // in order to clear the existing userDiv value
+            userDiv.innerHTML = '';
+
+            const user = data.results[0];
+
+            const fullName = `${user.name.title} ${user.name.first} ${user.name.last}`;
+            const email = user.email;
+            const picture = user.picture.medium;
+
+            const nameElement = document.createElement('p');
+            nameElement.textContent = `Name: ${fullName}`;
+
+            const emailElement = document.createElement('p');
+            emailElement.textContent = `Email: ${email}`;
+
+            const pictureElement = document.createElement('img');
+            pictureElement.src = picture;
+            pictureElement.style.height = '100px';
+            pictureElement.style.width = '100px';
+
+            userDiv.appendChild(nameElement);
+            userDiv.appendChild(emailElement);
+            userDiv.appendChild(pictureElement);
         })
-        .then((data) => {
-            displayUsers(data.results);
-        })
+        .catch(error => console.log('an error occurred'));
 }
-
-fetchButton.addEventListener('click', () => {
-    loadUsers(url);
-});
-
-
-function displayUsers(info) {
-    const usersWrapper = document.createElement('div');
-    content.appendChild(usersWrapper);
-    info.forEach(user => {
-        const userDiv = displayUser(user);
-        usersWrapper.appendChild(userDiv);
-    })
-};
-
-function displayUser(user) {
-    const userWrapper = document.createElement('div');
-    const name = document.createElement('h1');
-    name.textContent = user.name.first;
-    userWrapper.appendChild(name);
-
-    return userWrapper;
-};

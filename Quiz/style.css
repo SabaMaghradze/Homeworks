@@ -139,13 +139,29 @@ a {
 }
 
 .container {
-    max-width: 1920px;
-    width: 100%;
-    margin: 0 auto;
-    /* border: 4px solid black; */
+	max-width: 1920px;
+	width: 100%;
+	margin: 0 auto;
 }
 
 .content {
-    /* border: 4px solid red; */
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
 }
 
+button {
+	width: 20%;
+}
+
+#genderSelection {
+	width: 20%;
+}
+
+#userDiv {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
