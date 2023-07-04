@@ -1,4 +1,4 @@
-const container = document.getElementsByClassName('container');
+const container = document.querySelector('.container');
 const section1 = document.getElementById('section1');
 
 fetch('https://dummyjson.com/products?limit=10&skip=0')
@@ -10,31 +10,34 @@ fetch('https://dummyjson.com/products?limit=10&skip=0')
     })
     .then(data => {
         // renderData(data.products);
-        console.log(data.products);
-        console.log(Array.isArray(data.products));
-        console.log(data.products.length);
+        const productsArray = data.products;
 
         const productsDiv = document.createElement('div');
         productsDiv.setAttribute('class', 'productsDiv');
         section1.appendChild(productsDiv);
 
-        const productDiv = document.createElement('div');
-        productDiv.setAttribute('class', 'productDiv');
-        productsDiv.appendChild(productDiv);
+        const objProperties = ['id', 'title', 'description', 'price', 'discountPercentage', 'rating', 'stock', 'brand', 'category', 'thumbnail'];
 
-        for (let i = 0; i < data.products.length; i++) {
-            productDiv.textContent = `${data.products[i].title}, ${data.products[i].price}, ${data.products[i].brand}`;
-        }
-        
+        for (let i = 0; i < productsArray.length; i++) {
+            const productDiv = document.createElement('div');
+            productDiv.setAttribute('class', 'productDiv');
+            productsDiv.appendChild(productDiv);
+
+            const ul = document.createElement('ul');
+            ul.setAttribute('class', 'section1Ul');
+            productDiv.appendChild(ul);
+
+            for (let j = 0; j < objProperties.length; j++) {
+                const li = document.createElement('li');
+                li.setAttribute('class', 'property');
+                li.innerText = `${objProperties[j]}: ${productsArray[i][objProperties[j]]}`;
+                ul.appendChild(li);
+            }
+        };
     })
     .catch(error => {
         console.log('ERROR');
     });
 
-function renderData(data) {
-
-}
-
 console.log(container);
 
-// card.innerText = `username: ${users[i].login.username},\n gender: ${users[i].gender},\n email: ${users[i].email},\n city: ${users[i].location.city},\n street: ${users[i].location.street.name},\n job date: ${users[i].dob.date},\n cellPhone: ${users[i].cell},\n picture: ${users[i].picture.medium}`;
