@@ -142,6 +142,7 @@ a {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
+    background-color: #696969;
 }
 
 header {
@@ -153,7 +154,7 @@ header {
     background-color: #222831;
 }
 
-#logo>a {
+.logo {
     font-size: 50px;
     font-weight: bold;
     color: #f96d00;
@@ -183,7 +184,7 @@ header {
 #section1 {
     width: 100%;
     padding: 30px;
-    margin-top: 100px;
+    margin-top: 50px;
     background-color: #222831;
 }
 
@@ -221,15 +222,17 @@ header {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+
+
 }
 
 .pagination {
-    border: 3px solid red;
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px 30px;
     background-color: #222831;
+    border-radius: 10px;
 }
 
 .pagination>ul {
@@ -272,4 +275,116 @@ header {
 
 #firstArrow {
     transform: rotate(180deg);
+}
+
+/* footer */
+
+footer {
+    background-color: #222831;
+    display: flex;
+    justify-content: center;
+    padding: 32px 0 57px 0;
+    margin-top: 50px;
+}
+
+.footerContent {
+    width: 63%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.firstColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.help {
+    font-size: 1.08rem;
+    font: bold;
+    color: white;
+}
+
+footer>div>div>h4 {
+    font-weight: 300;
+    font-size: 0.96rem;
+    color: white;
+}
+
+.help:hover {
+    color: #f96d00;
+}
+
+footer>div>div>h4:hover {
+    color: #f96d00;
+}
+
+.icons {
+    display: flex;
+    gap: 23px;
+    margin-top: 27px;
+}
+
+.icons>a>i {
+    color: white;
+    font-size: 19px;
+}
+
+.icons>a>i:hover {
+    animation: forIcons 0.2s linear forwards;
+}
+
+@keyframes forIcons {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(2);
+    }
+
+}
+
+.secondColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+}
+
+.secondColumn>div>p {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.96rem;
+    line-height: 19px;
+    color: white;
+}
+
+.secondColumn>div>p:hover {
+    color: #f96d00;
+}
+
+.fa-phone,
+.fa-envelope,
+.fa-location-dot {
+    color: white;
+    transition: all 0.2s linear;
+}
+
+
+.fa-envelope:hover {
+    color: #f96d00;
+    transform: scale(1.5);
+}
+
+.fa-phone:hover {
+    color: #f96d00;
+    transform: scale(1.5);
+}
+
+.fa-location-dot:hover {
+    color: red;
+    transform: scale(1.5);
 }
